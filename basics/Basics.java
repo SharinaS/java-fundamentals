@@ -1,0 +1,74 @@
+import java.util.Random;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+public class Basics {
+  public static void main(String[] args) {
+
+  int num = 2;
+  String word = "dog";
+  int n = 2;
+  
+  System.out.println("I own " + num + " " + pluralize(num, word) + ".");
+  flipNHeads(n);
+  clock();
+  }
+ 
+  // === Making Words Plural ===
+  public static String pluralize(int num, String word) { 
+    if(num == 0 || num > 1) { 
+      return word + "s";
+    }
+    return word;
+  }
+
+  // === Flipping Coins ===
+  public static void flipNHeads(int n) {
+    int max = 1;
+    int min = 0;
+    int headCounter = 0;
+    int flips = 0;
+    Random rand = new Random();
+    
+    while (headCounter < n) { //2
+      int randyNum = rand.nextInt((max - min) + 1);
+      if (randyNum == 1) {
+        headCounter += 1;
+        flips += 1;
+        System.out.println("heads");
+      } else {
+        headCounter = 0;
+        flips += 1;
+        System.out.println("tails");
+      }
+    } 
+    System.out.println("It took " + flips + " flips to flip " + n + " heads in a row.");
+  }
+
+  // === Printing out the time on the second ===
+  public static void clock(){
+    LocalDateTime now = LocalDateTime.now();
+    //int hour = now.getHour();
+    //int minute = now.getMinute();
+    int oldSecond = now.getSecond();
+    //String newNow = hour + ":" + minute + ":" + oldSecond; // the time right this second.
+    //System.out.println(newNow);
+
+    int counter = 0;
+    while (true){
+      now = LocalDateTime.now();
+      counter += 1;
+      int newSecond = now.getSecond();
+      if(oldSecond != newSecond){ 
+        oldSecond = newSecond;
+        String currentTime = now.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
+        System.out.println(currentTime + " " + counter + " Hz");
+        counter = 0;
+      }
+    }
+
+      
+  } 
+
+}
+
