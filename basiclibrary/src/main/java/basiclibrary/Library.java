@@ -14,7 +14,7 @@ public class Library {
         return true;
     }
 
-    // range of a number resourced from
+    // ====Create an array from the values rolled from a six-sided dice, rolled n times. ====
     public static int[] roll(int n){
         Random rand = new Random();
         int max = 6;
@@ -29,7 +29,7 @@ public class Library {
         return diceRolls;
     }
 
-    // check for duplicates
+    // ==== check for duplicates within an array ====
     public static boolean duplicates(int[] checker){
         for ( int i = 0; i < checker.length; i++){
             for (int j = i+1; j < checker.length; j++){
@@ -41,7 +41,7 @@ public class Library {
         return false;
     }
 
-    // get the average
+    // ==== get the average value for the contents of an array ====
     public static int averages(int[] arr){
         int summed = 0;
         int arrLength = arr.length;
@@ -51,25 +51,35 @@ public class Library {
         return summed/arrLength;
     }
 
-    // Array of Arrays - get the array with the lowest average
+    // ==== Array of Arrays - get the array with the lowest average ====
+    /* Help received from Sarah Fisher, specifically in using averages method within following method,
+    and the use of index to point to appropriate array.*/
     public static int[] nestedAverages(int[][] arrOfArrays){
-        int lowestAverage = 0;
-        int indexOfArraywithLowestAverage = 0
-
-        int[] currAverageArr = new int[arrOfArrays.length];
+        int indexOfArraywithLowestAverage = 0;
+        // call averages method to calculate average on each subarray.
+        int lowestAverage = averages(arrOfArrays[indexOfArraywithLowestAverage]);
 
         for(int i = 0; i < arrOfArrays.length; i++){
 
-            for(int j = 0; j < arrOfArrays[i].length; j++){
-                int currAverage = 0;
-                currAverage += arrOfArrays[i][j];
-
-                if (currAverage < lowestAverage) {
-                    lowestAverage = currAverage;
-                    currAverageArr[j] = arrOfArrays[i][j];
+            int currAverage = averages(arrOfArrays[i]);
+            if (currAverage < lowestAverage) {
+                lowestAverage = currAverage;
+                indexOfArraywithLowestAverage = i;
                 }
             }
-        }
-        return currAverageArr;
+        return arrOfArrays[indexOfArraywithLowestAverage];
     }
+
+    // ==== The start of a second option for this method
+//    public static int[] nestedAveragesWithForEach(int[][] arrOfArrays){
+//        double lowestAverage = averages(arrOfArrays[0]);
+//        for(int[] week : arrOfArrays){
+//            int average = 0;
+//            for(int day : week){
+//                // write code here that uses the daily temp referencing 'day'
+//            }
+//            average = average / 7;
+//            if(average < runningAverage) running Average = average;
+//        }
+//    }
 }

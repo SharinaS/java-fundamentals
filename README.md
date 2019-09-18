@@ -5,9 +5,13 @@ This repo contains Java Fundamentals.
 Sharina Stubbs
 
 ## Files and Methods Contained Here
-Basics.java contains the following methods:
+### Basics.java contains the following methods:
 * pluralize()
 * flipNHeads()
 * clock()
 
-## Library.java contains the following methods:
+### Library.java contains the following methods:
+* diceRolls()
+* duplicates()
+* averages()
+* nestedAverages()
