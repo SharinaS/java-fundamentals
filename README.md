@@ -9,3 +9,5 @@ Basics.java contains the following methods:
 * pluralize()
 * flipNHeads()
 * clock()
+
+## Library.java contains the following methods:
