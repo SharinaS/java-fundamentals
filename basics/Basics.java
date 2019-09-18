@@ -7,22 +7,32 @@ public class Basics {
 
   int num = 2;
   String word = "dog";
-  int n = 2;
-  
+  int n = 5;
+
   System.out.println("I own " + num + " " + pluralize(num, word) + ".");
   flipNHeads(n);
   clock();
   }
  
-  // === Making Words Plural ===
+  // === Making Words Plural === 
+  
   public static String pluralize(int num, String word) { 
-    if(num == 0 || num > 1) { 
-      return word + "s";
+    // if(num == 0 || num > 1) { 
+    //   return word + "s";
+    // }
+    // return word;
+
+    // The following code considers edge cases: negative numbers. If it's exactly 1, go with the word, otherwise pluralize it. 
+    if(num == 1) { 
+      return word;
+    } else {
+    return word + "s";
     }
-    return word;
   }
 
   // === Flipping Coins ===
+  // Notes: double randomNumber = random.nextDouble(); <--- this can create a range of 0 to 1?
+  // Edge case: What if you want to pass in n = 0 <-- no problem. How about a negative number? <-- no problem.
   public static void flipNHeads(int n) {
     int max = 1;
     int min = 0;
@@ -30,15 +40,14 @@ public class Basics {
     int flips = 0;
     Random rand = new Random();
     
-    while (headCounter < n) { //2
+    while (headCounter < n) { 
+      flips += 1;
       int randyNum = rand.nextInt((max - min) + 1);
       if (randyNum == 1) {
         headCounter += 1;
-        flips += 1;
         System.out.println("heads");
       } else {
         headCounter = 0;
-        flips += 1;
         System.out.println("tails");
       }
     } 
