@@ -15,3 +15,5 @@ Sharina Stubbs
 * duplicates()
 * averages()
 * nestedAverages()
+* octoberWeather()
+* tallyingVotes()
