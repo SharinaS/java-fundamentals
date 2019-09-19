@@ -56,6 +56,7 @@ public class LibraryTest {
                 Library.nestedAverages(origArr)
         );
     }
+    
     @Test public void testOctoberWeather() {
         int[][] weatherArr = {
                 {66, 64, 58, 65, 71, 57, 60},

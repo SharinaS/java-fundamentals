@@ -1,5 +1,5 @@
 # Java Fundamentals
-This repo contains Java Fundamentals.
+This repo contains Java Fundamentals from Code 401 Java at Code Fellows
 
 ## Contributor
 Sharina Stubbs
@@ -17,3 +17,4 @@ Sharina Stubbs
 * nestedAverages()
 * octoberWeather()
 * tallyingVotes()
+
