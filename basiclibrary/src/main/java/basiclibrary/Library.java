@@ -5,8 +5,7 @@
 package basiclibrary;
 
 
-import java.util.Random;
-import java.util.Arrays;
+import java.util.*;
 
 public class Library {
 
@@ -70,7 +69,7 @@ public class Library {
         return arrOfArrays[indexOfArraywithLowestAverage];
     }
 
-    // ==== The start of a second option for this method
+    // ==== The start of a second option for nestedAverages method
 //    public static int[] nestedAveragesWithForEach(int[][] arrOfArrays){
 //        double lowestAverage = averages(arrOfArrays[0]);
 //        for(int[] week : arrOfArrays){
@@ -82,4 +81,70 @@ public class Library {
 //            if(average < runningAverage) running Average = average;
 //        }
 //    }
+
+
+    // ==== October weather data ====
+    // Resources: https://stackoverflow.com/questions/21674457/create-an-empty-hashset
+    // Resources: https://www.geeksforgeeks.org/hashset-contains-method-in-java/
+    // Resources: https://stackoverflow.com/questions/15730134/java-opposite-of-contains-does-not-contain
+    public static String octoberWeather (int[][] weeklyMonthTempsOct){
+        int min = weeklyMonthTempsOct[0][0];
+        int max = weeklyMonthTempsOct[0][0];
+        String weatherTempsStr = "";
+        HashSet<Integer> uniqueTempsSet = new HashSet<Integer>();
+
+        for (int[] week : weeklyMonthTempsOct){
+            for(int daytemp : week) {
+                if(daytemp < min) {
+                    min = daytemp;
+                }
+                if(daytemp > max) {
+                    max = daytemp;
+                }
+                uniqueTempsSet.add(daytemp);
+                } // closes inner  for loop
+            } // closes outer for loop
+            weatherTempsStr += "High: " + max + "\n";
+            weatherTempsStr += "Low: " + min + "\n";
+            // check hashset for values between the min and max values and if they do not exist, print out temps
+            // not seen.
+            for(int i = min; i < max; i++){
+                if(!uniqueTempsSet.contains(i)){
+                    weatherTempsStr += ("Never saw temperature: " + i + "\n");
+
+                }
+            }
+        return weatherTempsStr;
+    }
+
+    // Resource: https://beginnersbook.com/2013/12/how-to-loop-arraylist-in-java/
+    // Resource: https://www.geeksforgeeks.org/collections-max-method-in-java-with-examples/
+    public static String tallyingVotes(List<String> votes){
+        HashMap<String, Integer> nameCounts = new HashMap<>();
+        String highestVotes = "";
+        for (String name : votes) {
+            // if name not in hashmap, put it in there with a count of 1
+            if (!nameCounts.containsKey(name)) {
+                nameCounts.put(name, 1);
+            } else {
+                // Each time we find a name, increment its count by 1
+//                int numVotesByName = nameCounts.get(name);
+//                numVotesByName++;
+//                nameCounts.put(name, numVotesByName);
+
+                nameCounts.put(name, nameCounts.get(name)+1); // shorter way than above
+            }
+
+            // find highest number of occurrances of name by iterating through HashMap
+            int max = 0;
+            for (String person : nameCounts.keySet()){
+                //System.out.println(name + nameCounts.get(person));
+                if (nameCounts.get(person) > max) {
+                    max = nameCounts.get(person);
+                    highestVotes = name;
+                }
+            }
+        }
+        return highestVotes;
+    }
 }
