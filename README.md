@@ -6,7 +6,7 @@ Sharina Stubbs
 
 ## Files and Methods Contained Here
 ### Basics.java contains the following methods:
-* pluralize()
+* [pluralize()](https://github.com/SharinaS/java-fundamentals/blob/master/basics/Basics.java)
 * flipNHeads()
 * clock()
 
