@@ -83,29 +83,40 @@ public class Library {
 //    }
 
 
-    // ==== October weather data ====
+    // ==== October weather data - Finds the highest and the lowest monthly temps...
+    // and Says what temps Were Never Seen ====
+
+    // This has Big O(n) linear space
+
     // Resources: https://stackoverflow.com/questions/21674457/create-an-empty-hashset
     // Resources: https://www.geeksforgeeks.org/hashset-contains-method-in-java/
     // Resources: https://stackoverflow.com/questions/15730134/java-opposite-of-contains-does-not-contain
+
     public static String octoberWeather (int[][] weeklyMonthTempsOct){
-        int min = weeklyMonthTempsOct[0][0];
-        int max = weeklyMonthTempsOct[0][0];
+        int min = weeklyMonthTempsOct[0][0]; // or: Integer.MIN_VALUE;
+        int max = weeklyMonthTempsOct[0][0]; // or: Integer.MAX_VALUE;
+
         String weatherTempsStr = "";
         HashSet<Integer> uniqueTempsSet = new HashSet<Integer>();
 
         for (int[] week : weeklyMonthTempsOct){
             for(int daytemp : week) {
+                // finds lowest value
                 if(daytemp < min) {
                     min = daytemp;
                 }
+                // finds highest value
                 if(daytemp > max) {
                     max = daytemp;
                 }
+                // add data to the hashset
                 uniqueTempsSet.add(daytemp);
-                } // closes inner  for loop
-            } // closes outer for loop
+                }
+            }
+
             weatherTempsStr += "High: " + max + "\n";
             weatherTempsStr += "Low: " + min + "\n";
+
             // check hashset for values between the min and max values and if they do not exist, print out temps
             // not seen.
             for(int i = min; i < max; i++){
@@ -118,8 +129,11 @@ public class Library {
         return weatherTempsStr;
     }
 
+
+    // ==== Tally Up The Outcome of Votes and Find the Winner's Name ===
     // Resource: https://beginnersbook.com/2013/12/how-to-loop-arraylist-in-java/
     // Resource: https://www.geeksforgeeks.org/collections-max-method-in-java-with-examples/
+
     public static String tallyingVotes(List<String> votes){
         HashMap<String, Integer> nameCounts = new HashMap<>();
         String highestVotes = "";
@@ -127,7 +141,7 @@ public class Library {
             // if name not in hashmap, put it in there with a count of 1
             if (!nameCounts.containsKey(name)) {
                 nameCounts.put(name, 1);
-            } else {
+            } else {  // probably more efficient to have the else being the nameCounts.put(name, 1);
                 // Each time we find a name, increment its count by 1
 //                int numVotesByName = nameCounts.get(name);
 //                numVotesByName++;
