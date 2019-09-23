@@ -5,6 +5,7 @@ package linter;
 
 // resource: class-03 Alice example - github.com/codefellows/seattle-java-401d6/tree/master/class-03/alice
 // resource: https://stackoverflow.com/questions/27522563/why-stringjoiner-when-we-already-have-stringbuilder
+// resource: docs.oracle.com/javase/8/docs/api/java/util/StringJoiner.html
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -43,7 +44,7 @@ public class App {
             String line = fileReader.nextLine();
             //System.out.println(line);
 
-
+            // logic kindly helped by code from Michelle Ferreirae
             if (line.length() > 0) {
                 // check for curly braces
                 char finalCharInLine = line.charAt(line.length() -1);
