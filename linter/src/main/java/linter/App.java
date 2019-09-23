@@ -44,7 +44,7 @@ public class App {
             String line = fileReader.nextLine();
             //System.out.println(line);
 
-            // logic kindly helped by code from Michelle Ferreirae
+            // logic kindly helped by code from: Michelle Ferreirae
             if (line.length() > 0) {
                 // check for curly braces
                 char finalCharInLine = line.charAt(line.length() -1);
