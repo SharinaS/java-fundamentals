@@ -5,10 +5,18 @@ package inheritance;
 // Restaurant gets a linked list of reviews.
 // The methods exist to update the constructor function, given a review added.
 
+/*
+NOTES
+It's generally better to use built in Java's LinkedList -- See FrontRow video for Tues, Sept 24, 2019 --
+versus my own, since it simplifies the code and can use for loops.
+*/
+
 public class Restaurant {
+    // Instance variables
     String name;
     double stars0To5;
     int priceCategory;
+    Node head;
 
     // constructor for Restaurant
     public Restaurant (String name, double stars0To5, int priceCategory) {
@@ -17,8 +25,7 @@ public class Restaurant {
         this.stars0To5 = stars0To5;
     }
 
-    // creates a linked list
-    Node head;
+
 
     // Each node contains review body, review author and review star rating, each of which has to be
     // added to its respective node. First, create the class Node, establish a method to add a node to the list, then create
@@ -43,6 +50,8 @@ public class Restaurant {
     public void addReviewToHead(String name, String body, int stars){
         // use the insertNodeToHead method to insert content to node from each instance of a review
         insertNodeToHeadOfList(new Review(name, body, stars));
+
+        // see 3pm on FrontRow for this section - to let reviews access restaurant.
     }
 
     // count number of stars in the linked list for each restaurant,
@@ -68,6 +77,15 @@ public class Restaurant {
         // update the stars in the restaurant constructor function
         this.stars0To5 = starSum / restaurantCount;
     }
+
+    /* add in method that is called addReview:
+    Add an instance method addReview to your Restaurant class.
+    This method should take in a Review instance, and associate that review with this Restaurant
+
+    Ideally, want to have all reviews associated with a restaurant.
+    ret.reviews.get(0).restaurant
+    One restaurant has many reviews, and one review has one restaurant
+     */
 
 
 
