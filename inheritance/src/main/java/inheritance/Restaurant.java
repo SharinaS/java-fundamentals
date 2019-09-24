@@ -77,10 +77,6 @@ public class Restaurant {
                 "The restaurant %s has a price category of %s and has an average of %s stars",
                 this.name, this.priceCategory, this.stars0To5);
     }
-
-    //Test that your Restaurant constructor is behaving reasonably.
-    //Implement a reasonable toString method for Restaurants.
-    //Write a test to create an instance of Restaurant and ensure that its toString is working properly.
 }
 
 
