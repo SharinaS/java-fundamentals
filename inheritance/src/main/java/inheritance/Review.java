@@ -9,8 +9,13 @@ public class Review {
     String author;
     String body;
     int stars;
+    Restaurant restaurant;
 
     public Review(String name, String body, int stars) {
+        if(stars > 5) {
+            // user will see this message:
+            throw new IllegalArgumentException("Rating must be less than 6");
+        }
         this.author = name;
         this.body = body;
         this.stars = stars;

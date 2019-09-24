@@ -15,6 +15,12 @@ public class RestaurantTest {
         greatRestaurant = new Restaurant("Great Restaurant", 3, 4);
     }
 
+    // To DO: constructor checker
+//    @Test
+//    public void testRestaurantConstructor() {
+//        assertEquals(0, seattleFish.name);
+//    }
+
     // Check that restaurant has a toString working
     @Test
     public void testRestaurant() {
