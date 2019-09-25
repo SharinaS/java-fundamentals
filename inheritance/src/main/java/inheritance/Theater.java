@@ -12,7 +12,6 @@ public class Theater implements Reviewable{
     public Theater(String name) {
         this.name = name;
         this.reviews = new LinkedList<>();
-//        this.movies = new LinkedList<>();
     }
 
     // instance methods

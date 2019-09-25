@@ -20,10 +20,16 @@ public class TheaterTest {
         );
     }
 
-        // check functionality of shop constructor
-        @Test
-        public void testShopConstructor() {
-            assertEquals("Mega Box Office Hits",
-                    megaBoxOffice.name);
-        }
+    // check functionality of shop constructor
+    @Test
+    public void testShopConstructor() {
+        assertEquals("Mega Box Office Hits",
+                megaBoxOffice.name);
+    }
+
+    // add a movie to empty list
+    @Test
+    public void testAddMovie() {
+
+    }
 }
