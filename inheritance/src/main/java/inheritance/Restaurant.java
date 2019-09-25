@@ -4,13 +4,14 @@ package inheritance;
 
 import java.util.LinkedList;
 
-public class Restaurant {
+public class Restaurant implements Reviewable {
     // Instance variables
     String name;
     double stars0To5;
     int priceCategory;
-
+    // instance variable that uses Java's LinkedLists to hold the reviews in.
     LinkedList<Review> reviews;
+
 
     // constructor for Restaurant
     public Restaurant (String name, double stars0To5, int priceCategory) {
@@ -22,14 +23,15 @@ public class Restaurant {
     }
 
     // adds new review to this restaurant
+    @Override
     public void addReview(Review review){
         // this review is set up inside the reviews list
         this.reviews.add(review);
-        // sets up a new pointer that points review to its restaurant
-        review.restaurant = this;
+        // sets up a new pointer that points review to the interface.
+        review.reviewable = this;
     }
 
-    public void getRestaurantStarRating(){
+    public void getStarRating(){
         int starSum = 0;
 
         // start at the head of the restaurant list and add up the stars
@@ -42,7 +44,7 @@ public class Restaurant {
 
     public void addReviewsAndRating(String name, String body, int stars0To5) {  //addReviewedHead
         addReview(new Review(name, body, stars0To5));
-        getRestaurantStarRating();
+        getStarRating();
     }
 
     @Override

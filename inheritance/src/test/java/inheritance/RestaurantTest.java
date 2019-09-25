@@ -21,7 +21,6 @@ public class RestaurantTest {
         assertEquals(2, seattleFish.priceCategory);
         assertEquals(4, 4, seattleFish.stars0To5);
         assertEquals("Seattle Fish and Clams", seattleFish.name);
-
     }
 
     // Check that restaurant has a toString working
