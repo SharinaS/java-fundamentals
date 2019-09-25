@@ -2,15 +2,12 @@ package inheritance;
 
 
 public class Review {
-    //public Shop shop;
     // instance variables
     String author;
     String review;
     int starRating;
 
-    // this allows our addReview method
-    //Restaurant restaurant;
-    //Shop shop;
+    // this allows our addReview method, given our interface
     Reviewable reviewable;
 
     public Review(String name, String review, int stars) {
