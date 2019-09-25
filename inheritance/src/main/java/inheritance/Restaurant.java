@@ -1,93 +1,49 @@
 package inheritance;
 
-// Thanks to James Dansie for providing help with the logic and some code
+// Thanks to James Dansie for providing help with the logic and some code, and code review on 9/24/19 at Code Fellows
 
-// Restaurant gets a linked list of reviews.
-// The methods exist to update the constructor function, given a review added.
-
-/*
-NOTES
-It's generally better to use built in Java's LinkedList -- See FrontRow video for Tues, Sept 24, 2019 --
-versus my own, since it simplifies the code and can use for loops.
-*/
+import java.util.LinkedList;
 
 public class Restaurant {
     // Instance variables
     String name;
     double stars0To5;
     int priceCategory;
-    Node head;
+
+    LinkedList<Review> reviews;
 
     // constructor for Restaurant
     public Restaurant (String name, double stars0To5, int priceCategory) {
         this.name = name;
         this.priceCategory = priceCategory;
         this.stars0To5 = stars0To5;
+        // initialize linked list to initially be empty
+        this.reviews = new LinkedList<>();
     }
 
-
-
-    // Each node contains review body, review author and review star rating, each of which has to be
-    // added to its respective node. First, create the class Node, establish a method to add a node to the list, then create
-    // methods to add the data (body, author, star) to its respective node.
-
-    class Node {
-        Review data;
-        Node next;
-
-        public Node (Review data, Node next){
-            this.data = data;
-            this.next = next;
-        }
+    // adds new review to this restaurant
+    public void addReview(Review review){
+        // this review is set up inside the reviews list
+        this.reviews.add(review);
+        // sets up a new pointer that points review to its restaurant
+        review.restaurant = this;
     }
 
-    // method to add a new node to the beginning of the linked list
-    public void insertNodeToHeadOfList(Review data) {
-        this.head = new Node(data, this.head);
-    }
-
-    // add review info to the head of the list, given a review has a name, body and stars
-    public void addReviewToHead(String name, String body, int stars){
-        // use the insertNodeToHead method to insert content to node from each instance of a review
-        insertNodeToHeadOfList(new Review(name, body, stars));
-
-        // see 3pm on FrontRow for this section - to let reviews access restaurant.
-    }
-
-    // count number of stars in the linked list for each restaurant,
-    // and get the average stars for each restaurant's linked list,
-    // then update the constructor function with the star average
-    public void addUpStarsAndGetRestaurantAverage(){
+    public void getRestaurantStarRating(){
         int starSum = 0;
-        int restaurantCount = 0;
 
-        // check if there's anything in the linked list
-        if(head == null) {
-            System.out.println("Please check back when there are reviews for this restaurant");
-        } else {
-            // start at the head of the restaurant list
-            Node curr = this.head;
-            // step through the list and count the stars
-            while(curr != null) {
-                starSum += curr.data.stars;
-                restaurantCount += 1;
-                curr = curr.next;
-            }
+        // start at the head of the restaurant list and add up the stars
+        for(Review r : this.reviews) {
+            starSum += r.starRating;
         }
-        // update the stars in the restaurant constructor function
-        this.stars0To5 = starSum / restaurantCount;
+        // divide the number of stars by the number of reviews
+        this.stars0To5 = starSum / this.reviews.size();
     }
 
-    /* add in method that is called addReview:
-    Add an instance method addReview to your Restaurant class.
-    This method should take in a Review instance, and associate that review with this Restaurant
-
-    Ideally, want to have all reviews associated with a restaurant.
-    ret.reviews.get(0).restaurant
-    One restaurant has many reviews, and one review has one restaurant
-     */
-
-
+    public void addReviewsAndRating(String name, String body, int stars0To5) {  //addReviewedHead
+        addReview(new Review(name, body, stars0To5));
+        getRestaurantStarRating();
+    }
 
     @Override
     public String toString() {
@@ -98,3 +54,7 @@ public class Restaurant {
 }
 
 
+/* NOTES
+    ret.reviews.get(0).restaurant
+    One restaurant has many reviews, and one review has one restaurant
+     */

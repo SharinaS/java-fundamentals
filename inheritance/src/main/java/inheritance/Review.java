@@ -1,31 +1,29 @@
 package inheritance;
 
-// a body, an author, and a number of stars.
-//
 
 public class Review {
-    // point to the appropriate restaurant
-    // constructor and a toString
+    // instance variables
     String author;
-    String body;
-    int stars;
+    String review;
+    int starRating;
+    // this allows our addReview method
     Restaurant restaurant;
 
-    public Review(String name, String body, int stars) {
+    public Review(String name, String review, int stars) {
         if(stars > 5) {
             // user will see this message:
-            throw new IllegalArgumentException("Rating must be less than 6");
+            throw new IllegalArgumentException("Rating must be less than or equal to 5 stars");
         }
         this.author = name;
-        this.body = body;
-        this.stars = stars;
+        this.review = review;
+        this.starRating = stars;
     }
 
     @Override
     public String toString() {
-        return String.format("%s gave the restaurant %s stars, and gave the following review: %s", this.author, this.stars, this.body);
+        return String.format(
+                "%s gave the restaurant %s stars, and gave the following review: %s",
+                this.author, this.starRating, this.review);
     }
-
-
 }
 
