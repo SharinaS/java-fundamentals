@@ -35,7 +35,7 @@ public class ShopTest {
     // Check that reviewer's name added to the review for the shop
     @Test
     public void testAddDataToReview1() {
-        Review cliveReview = new Review("Clive", "This place has everything", 4);
+        Review cliveReview = new Review("Clive", "This place has everything", 4, petSupplyWarehouse);
         petSupplyWarehouse.addReview(cliveReview);
         assertEquals(
                 "Review's name should be Clive",
@@ -47,7 +47,7 @@ public class ShopTest {
 
     @Test
     public void testAddDataToReview2() {
-        Review cliveReview = new Review("Clive", "This place has everything", 4);
+        Review cliveReview = new Review("Clive", "This place has everything", 4, petSupplyWarehouse);
         petSupplyWarehouse.addReview(cliveReview);
         assertEquals(
                 "Review's review should be a string",

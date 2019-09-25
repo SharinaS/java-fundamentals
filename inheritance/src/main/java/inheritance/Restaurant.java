@@ -27,7 +27,7 @@ public class Restaurant implements Reviewable {
     public void addReview(Review review){
         // this review is set up inside the reviews list
         this.reviews.add(review);
-        // sets up a new pointer that points review to the interface.
+        // sets up a new pointer that points to reviewable
         review.reviewable = this;
     }
 
@@ -43,7 +43,7 @@ public class Restaurant implements Reviewable {
     }
 
     public void addReviewsAndRating(String name, String body, int stars0To5) {  //addReviewedHead
-        addReview(new Review(name, body, stars0To5));
+        addReview(new Review(name, body, stars0To5, this));
         getStarRating();
     }
 
