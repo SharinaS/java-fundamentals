@@ -15,52 +15,46 @@ public class RestaurantTest {
         greatRestaurant = new Restaurant("Great Restaurant", 3, 4);
     }
 
-    // To DO: constructor checker
-//    @Test
-//    public void testRestaurantConstructor() {
-//        assertEquals(0, seattleFish.name);
-//    }
+    //Check restaurant constructor
+    @Test
+    public void testRestaurantContructor() {
+        assertEquals(2, seattleFish.priceCategory);
+        assertEquals(4, 4, seattleFish.stars0To5);
+        assertEquals("Seattle Fish and Clams", seattleFish.name);
+
+    }
 
     // Check that restaurant has a toString working
     @Test
-    public void testRestaurant() {
-        System.out.println(seattleFish.toString());
+    public void testRestaurantToStringMethod() {
+        String expectedResult = "The restaurant Seattle Fish and Clams has a price category of 2 and has an average of 4.0 stars";
+        assertEquals(
+                "Expected a string with the restaurant's name, starRating and priceCategory",
+                expectedResult,
+                seattleFish.toString());
     }
 
-    // Check if a node is inserted to head of list, and print it out as a string
+    // Check star review for a restaurant
     @Test
-    public void testInsertNodeAtBeginningOfList() {
-        seattleFish.insertNodeToHeadOfList(new Review("James", "Nom Shack is better", 1));
-        System.out.println(seattleFish.head.data.toString());
+    public void testAddReviewsAndRating() {
+        greatRestaurant.addReviewsAndRating("Nancy", "Yeah, this restaurant is great", 4);
+        assertEquals(
+                "Should have 4 stars",
+                4,
+                greatRestaurant.reviews.get(0).starRating
+        );
     }
 
-    // Check if the method adds review to head of list
+    // check average of reviews for restaurant while printing out string
     @Test
-    public void testAddReviewToHead() {
-        seattleFish.addReviewToHead("Razzle", "Fish is always great", 5);
-        System.out.println(seattleFish.head.data.toString());
+    public void testGetRestaurantStarRating() {
+        greatRestaurant.addReviewsAndRating("Nancy", "Yeah, this restaurant is great", 3);
+        greatRestaurant.addReviewsAndRating("Peter Pan", "Tinkle Bell makes a better waffle", 2);
+        greatRestaurant.addReviewsAndRating("Peter Piper", "Great salad", 4);
+        assertEquals(
+                "Should have 3 stars",
+                "The restaurant Great Restaurant has a price category of 4 and has an average of 3.0 stars",
+                greatRestaurant.toString());
     }
-
-    // Check if method adds multiple reviews to list, each succeeding one to the head.
-    @Test
-    public void testAddTwoReviewsToHead() {
-        seattleFish.addReviewToHead("Razzle", "Fish is always great", 5);
-        seattleFish.addReviewToHead("Tom", "I like their breakfast", 4);
-        System.out.println(seattleFish.head.data.toString());
-        System.out.println(seattleFish.head.next.data.toString());
-    }
-
-    // Check that stars in constructor function are updated with new average, once reviews are added
-    @Test
-    public void testAddUpStarsAndGetRestaurantAverage() {
-        seattleFish.addReviewToHead("Razzle", "Fish is always great", 3);
-        seattleFish.addReviewToHead("Tom", "I like their breakfast", 3);
-        seattleFish.addReviewToHead("Petra", "The cod is good", 3);
-        seattleFish.addUpStarsAndGetRestaurantAverage();
-        System.out.println(seattleFish.toString());
-    }
-
-    // Check that error message returns if method that calculates average used when there are no reviews added
-
 
 } // end RestaurantTestClass

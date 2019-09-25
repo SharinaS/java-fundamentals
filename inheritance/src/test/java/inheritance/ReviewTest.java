@@ -11,13 +11,13 @@ public class ReviewTest {
         System.out.println(bobby.toString());
     }
 
-    // to do:
-//    @Test
-//    public void testReviewAdding() {
-//        Restaurant woodblock = new Restaurant("Woodlock", 5, 4);
-//        Review reviewOfWoodblock = new Review("Tommy", "it's good", 5);
-//        woodblock.addReview(reviewOfWoodblock);
-//    }
+
+    @Test
+    public void testReviewAdding() {
+        Restaurant woodblock = new Restaurant("Woodlock", 5, 4);
+        Review reviewOfWoodblock = new Review("Tommy", "it's good", 5);
+        woodblock.addReview(reviewOfWoodblock);
+    }
 
     // test that expects an illegal argument exception to be thrown
     @Test(expected = IllegalArgumentException.class)
