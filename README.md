@@ -4,6 +4,9 @@ This repo contains Java Fundamentals from Code 401 Java at Code Fellows
 ## Contributor
 Sharina Stubbs
 
+## How To Test The Code:
+In the terminal, run `./gradlew test`
+
 ## Files and Methods Contained Here
 ### [Basics.java](https://github.com/SharinaS/java-fundamentals/blob/master/basics/Basics.java) contains the following methods:
 * pluralize()
