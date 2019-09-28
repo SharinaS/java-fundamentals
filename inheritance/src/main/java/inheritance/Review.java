@@ -26,6 +26,7 @@ public class Review {
         return String.format(
                 "%s gave the business %s stars, and gave the following review: %s",
                 this.author, this.starRating, this.review);
+        // add business into string?
     }
 }
 

@@ -21,17 +21,30 @@ Sharina Stubbs
 ### The linter Java application contains [app.java](https://github.com/SharinaS/java-fundamentals/blob/master/linter/src/main/java/linter/App.java):
 This app contains a method called readFile(), which reads through a given file, and checks each line for the presence of a semicolon. If lines are empty, end with an opening or closing curly brace, or if the line contains if or else, there will not be an error. 
 
-### Inheritance 
-Inheritance is a library that contains two classes:
-* public class Restaurant
-* public class Review
+### [Inheritance](https://github.com/SharinaS/java-fundamentals/tree/master/inheritance) 
+Inheritance is a library that uses an interface to interact with various classes. It is built on the idea of a website that allows users to review restaurants, shops and theaters.
 
-All classes have constructor functions. When a review is added, it is added as a node to a linked list, using instantiations of the Review class. This means that each node has review author, review body and review stars. Meanwhile each restaurant has a name, a star rating from 0 to 5, and a price category. Currently the price category is from 1 to 5, though again, this is not limited anywhere, currently. When a reviewer adds a review, the restaurant's star rating updates.
+This library contains the following classes + 1 interface:
+* Class Reviews
+* Class Restaurant
+* Class Shop
+* Class Theater
+* Interface Reviewable
 
-Methods included in the Restaurant class include:
+All classes have constructor functions. When a review is added, it is added as a node to a linked list, using instantiations of the Review class. This means that each node has review author, review body and review stars. Meanwhile a restaurant has a name, a star rating from 0 to 5, and a price category. Shops have name, description and a price category, and theaters have a name and reviews. Currently the price category is from 1 to 5, though again, this is not limited anywhere, currently. When a reviewer adds a review, the business' star rating updates. 
+
+### Methods in the Restaurant class:
 * addReview(Review review));
 * getRestaurantStarRating()
 * addReviewsAndRating(String name, String body, int stars0To5)
-* public String toString()
+* toString()
 
-There are tests written for all methods and the constructor function.
+### Methods in the Shop Class:
+* addReview(Review review)
+* toString()
+
+### Methods in the Theater Class:
+* addMovie(String movie)
+* removeMovie(String movie)
+* addReview(Review review)
+* toString()

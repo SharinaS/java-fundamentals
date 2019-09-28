@@ -23,7 +23,12 @@ public class Theater implements Reviewable{
 
     }
 
-    public void removeMovie(){
+    public void removeMovie(String movie){
+        if(movies == null) {
+            System.out.println("There are no movies in list");
+        } else {
+            this.movies.remove(movie);
+        }
 
     }
 
