@@ -4,7 +4,6 @@ import java.time.format.DateTimeFormatter;
 
 public class Basics {
   public static void main(String[] args) {
-
   int num = 2;
   String word = "dog";
   int n = 5;
@@ -15,13 +14,7 @@ public class Basics {
   }
  
   // === Making Words Plural === 
-  
   public static String pluralize(int num, String word) { 
-    // if(num == 0 || num > 1) { 
-    //   return word + "s";
-    // }
-    // return word;
-
     // The following code considers edge cases: negative numbers. If it's exactly 1, go with the word, otherwise pluralize it. 
     if(num == 1) { 
       return word;
@@ -55,15 +48,14 @@ public class Basics {
   }
 
   // === Printing out the time on the second ===
+  // learning note: if you decide to divide by 1000, you can represent it with 1_000, and Java will allow you to divide it still.
+  // learning point: doubles: a number with a decimal point. They can be used to represent really large numbers, bigger than what an int can represent, however they lose some precision. 
+  
   public static void clock(){
     LocalDateTime now = LocalDateTime.now();
-    //int hour = now.getHour();
-    //int minute = now.getMinute();
     int oldSecond = now.getSecond();
-    //String newNow = hour + ":" + minute + ":" + oldSecond; // the time right this second.
-    //System.out.println(newNow);
-
     int counter = 0;
+
     while (true){
       now = LocalDateTime.now();
       counter += 1;
@@ -74,10 +66,7 @@ public class Basics {
         System.out.println(currentTime + " " + counter + " Hz");
         counter = 0;
       }
-    }
-
-      
+    }  
   } 
-
 }
 
