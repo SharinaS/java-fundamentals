@@ -20,18 +20,17 @@ public class Library {
         int min = 0;
         int[] diceRolls = new int[n];
 
-        for ( int i = 0; i < n; i++){
+        for (int i = 0; i < n; i++){
               int randyNum = rand.nextInt((max - min) + 1);
               diceRolls[i] = randyNum;
         }
-        //System.out.println(Arrays.toString(diceRolls));
         return diceRolls;
     }
 
     // ==== check for duplicates within an array ====
     public static boolean duplicates(int[] checker){
-        for ( int i = 0; i < checker.length; i++){
-            for (int j = i+1; j < checker.length; j++){
+        for (int i = 0; i < checker.length; i++){
+            for (int j=i+1; j < checker.length; j++){
                 if(checker[i] == checker[j]){
                     return true;
                 }
@@ -51,15 +50,15 @@ public class Library {
     }
 
     // ==== Array of Arrays - get the array with the lowest average ====
-    /* Help received from Sarah Fisher, specifically in using averages method within following method,
-    and the use of index to point to appropriate array.*/
+    // Help received from Sarah Fisher, specifically in using averages method within following method,
+    // and the use of index to point to appropriate array.
+
     public static int[] nestedAverages(int[][] arrOfArrays){
         int indexOfArraywithLowestAverage = 0;
         // call averages method to calculate average on each subarray.
         int lowestAverage = averages(arrOfArrays[indexOfArraywithLowestAverage]);
 
         for(int i = 0; i < arrOfArrays.length; i++){
-
             int currAverage = averages(arrOfArrays[i]);
             if (currAverage < lowestAverage) {
                 lowestAverage = currAverage;
@@ -68,20 +67,6 @@ public class Library {
             }
         return arrOfArrays[indexOfArraywithLowestAverage];
     }
-
-    // ==== The start of a second option for nestedAverages method
-//    public static int[] nestedAveragesWithForEach(int[][] arrOfArrays){
-//        double lowestAverage = averages(arrOfArrays[0]);
-//        for(int[] week : arrOfArrays){
-//            int average = 0;
-//            for(int day : week){
-//                // write code here that uses the daily temp referencing 'day'
-//            }
-//            average = average / 7;
-//            if(average < runningAverage) running Average = average;
-//        }
-//    }
-
 
     // ==== October weather data - Finds the highest and the lowest monthly temps...
     // and Says what temps Were Never Seen ====
@@ -125,10 +110,8 @@ public class Library {
 
                 }
             }
-
         return weatherTempsStr;
     }
-
 
     // ==== Tally Up The Outcome of Votes and Find the Winner's Name ===
     // Resource: https://beginnersbook.com/2013/12/how-to-loop-arraylist-in-java/
@@ -141,19 +124,12 @@ public class Library {
             // if name not in hashmap, put it in there with a count of 1
             if (!nameCounts.containsKey(name)) {
                 nameCounts.put(name, 1);
-            } else {  // probably more efficient to have the else being the nameCounts.put(name, 1);
-                // Each time we find a name, increment its count by 1
-//                int numVotesByName = nameCounts.get(name);
-//                numVotesByName++;
-//                nameCounts.put(name, numVotesByName);
-
-                nameCounts.put(name, nameCounts.get(name)+1); // shorter way than above
+            } else {  
+                nameCounts.put(name, nameCounts.get(name)+1); 
             }
-
             // find highest number of occurrances of name by iterating through HashMap
             int max = 0;
             for (String person : nameCounts.keySet()){
-                //System.out.println(name + nameCounts.get(person));
                 if (nameCounts.get(person) > max) {
                     max = nameCounts.get(person);
                     highestVotes = name;
