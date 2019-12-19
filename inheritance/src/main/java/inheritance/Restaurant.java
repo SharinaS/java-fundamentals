@@ -1,24 +1,22 @@
 package inheritance;
 
-// Thanks to James Dansie for providing help with the logic and some code, and code review on 9/24/19 at Code Fellows
+// Thanks to James Dansie for providing help with the logic and some code,
+// as well as to code review on 9/24/19 at Code Fellows
 
 import java.util.LinkedList;
 
 public class Restaurant implements Reviewable {
-    // Instance variables
+    // Instance Variables
     String name;
     double stars0To5;
     int priceCategory;
-    // instance variable that uses Java's LinkedLists to hold the reviews in.
     LinkedList<Review> reviews;
 
-
-    // constructor for Restaurant
+    // Constructor
     public Restaurant (String name, double stars0To5, int priceCategory) {
         this.name = name;
         this.priceCategory = priceCategory;
         this.stars0To5 = stars0To5;
-        // initialize linked list to initially be empty
         this.reviews = new LinkedList<>();
     }
 
@@ -27,7 +25,7 @@ public class Restaurant implements Reviewable {
     public void addReview(Review review){
         // this review is set up inside the reviews list
         this.reviews.add(review);
-        // sets up a new pointer that points to reviewable
+        // set up a new pointer that points to reviewable
         review.reviewable = this;
     }
 
@@ -42,7 +40,7 @@ public class Restaurant implements Reviewable {
         this.stars0To5 = starSum / this.reviews.size();
     }
 
-    public void addReviewsAndRating(String name, String body, int stars0To5) {  //addReviewedHead
+    public void addReviewsAndRating(String name, String body, int stars0To5) {  
         addReview(new Review(name, body, stars0To5, this));
         getStarRating();
     }
