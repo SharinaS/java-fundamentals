@@ -6,9 +6,7 @@ public class Review {
     String review;
     int starRating;
     Reviewable business;
-
-    // this allows our addReview method, given our interface
-    Reviewable reviewable;
+    Reviewable reviewable; // this allows our addReview method, given our interface
 
     public Review(String name, String review, int stars, Reviewable business) {
         if(stars > 5) {

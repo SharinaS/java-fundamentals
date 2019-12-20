@@ -1,7 +1,9 @@
 package inheritance;
 
 // Thanks to James Dansie for providing help with the logic and some code,
-// as well as to code review on 9/24/19 at Code Fellows
+// as well as to code review on 9/24/19 at Code Fellows.
+// NOTE: One restaurant has many reviews, and one review has one restaurant.
+// NOTE: Interfaces are accessed via "implements" while Inheritance is used via "extends"
 
 import java.util.LinkedList;
 
@@ -23,15 +25,14 @@ public class Restaurant implements Reviewable {
     // adds new review to this restaurant
     @Override
     public void addReview(Review review){
-        // this review is set up inside the reviews list
+        // add review to the list called reviews
         this.reviews.add(review);
-        // set up a new pointer that points to reviewable
+        // set up a new pointer
         review.reviewable = this;
     }
 
     public void getStarRating(){
         int starSum = 0;
-
         // start at the head of the restaurant list and add up the stars
         for(Review r : this.reviews) {
             starSum += r.starRating;
@@ -40,7 +41,7 @@ public class Restaurant implements Reviewable {
         this.stars0To5 = starSum / this.reviews.size();
     }
 
-    public void addReviewsAndRating(String name, String body, int stars0To5) {  
+    public void addReviewsAndRating(String name, String body, int stars0To5) {
         addReview(new Review(name, body, stars0To5, this));
         getStarRating();
     }
@@ -52,9 +53,3 @@ public class Restaurant implements Reviewable {
                 this.name, this.priceCategory, this.stars0To5);
     }
 }
-
-
-/* NOTES
-    ret.reviews.get(0).restaurant
-    One restaurant has many reviews, and one review has one restaurant
-     */

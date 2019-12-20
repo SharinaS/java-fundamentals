@@ -1,5 +1,5 @@
 package inheritance;
 
 public interface Reviewable {
-    public void addReview(Review review);
+    void addReview(Review review);
 }
