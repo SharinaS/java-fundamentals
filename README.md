@@ -25,16 +25,17 @@ In the terminal, run `./gradlew test`
 This app contains a method called readFile(), which reads through a given file, and checks each line for the presence of a semicolon. If lines are empty, end with an opening or closing curly brace, or if the line contains if or else, there will not be an error. 
 
 ## [Inheritance](https://github.com/SharinaS/java-fundamentals/tree/master/inheritance) 
+### About this Library
 Inheritance is a library that uses an interface to interact with various classes. It is built on the idea of a website that allows users to review restaurants, shops and theaters.
 
-### This library contains the following classes + 1 interface:
-* Class Reviews
-* Class Restaurant
-* Class Shop
-* Class Theater
-* Interface Reviewable
-
 All classes have constructor functions. When a review is added, it is added as a node to a linked list, using instantiations of the Review class. This means that each node has review author, review body and review stars. Meanwhile a restaurant has a name, a star rating from 0 to 5, and a price category. Shops have name, description and a price category, and theaters have a name and reviews. Currently the price category is from 1 to 5, though again, this is not limited anywhere, currently. When a reviewer adds a review, the business' star rating updates. 
+
+### This library contains the following classes + 1 interface:
+* [Restaurant](https://github.com/SharinaS/java-fundamentals/blob/master/inheritance/src/main/java/inheritance/Restaurant.java) 
+* [Shop](https://github.com/SharinaS/java-fundamentals/blob/master/inheritance/src/main/java/inheritance/Shop.java)
+* [Review](https://github.com/SharinaS/java-fundamentals/blob/master/inheritance/src/main/java/inheritance/Review.java)
+* [Theater](https://github.com/SharinaS/java-fundamentals/blob/master/inheritance/src/main/java/inheritance/Theater.java)
+* [Reviewable](https://github.com/SharinaS/java-fundamentals/blob/master/inheritance/src/main/java/inheritance/Reviewable.java)
 
 ### Methods in the Restaurant class:
 * addReview(Review review));
@@ -46,11 +47,17 @@ All classes have constructor functions. When a review is added, it is added as a
 * addReview(Review review)
 * toString()
 
+### Methods in the Review Class:
+* toString()
+
 ### Methods in the Theater Class:
 * addMovie(String movie)
 * removeMovie(String movie)
 * addReview(Review review)
 * toString()
+
+### Method in the Reviewable Interface
+* addReview(Review review)
 
 ### SetUp and Feature Tasks for Inheritance:
 Setup

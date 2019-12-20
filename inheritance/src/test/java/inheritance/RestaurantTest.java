@@ -15,18 +15,20 @@ public class RestaurantTest {
         greatRestaurant = new Restaurant("Great Restaurant", 3, 4);
     }
 
-    //Check restaurant constructor
+    //Check Restaurant constructor
     @Test
     public void testRestaurantContructor() {
         assertEquals(2, seattleFish.priceCategory);
         assertEquals(4, 4, seattleFish.stars0To5);
         assertEquals("Seattle Fish and Clams", seattleFish.name);
+        assertEquals("Great Restaurant", greatRestaurant.name);
     }
 
-    // Check that restaurant has a toString working
+    // Check that the Restaurant toString is working
     @Test
     public void testRestaurantToStringMethod() {
-        String expectedResult = "The restaurant Seattle Fish and Clams has a price category of 2 and has an average of 4.0 stars";
+        String expectedResult = "The restaurant Seattle Fish and Clams has a price category of 2 and has an average " +
+                "of 4.0 stars";
         assertEquals(
                 "Expected a string with the restaurant's name, starRating and priceCategory",
                 expectedResult,
@@ -53,7 +55,7 @@ public class RestaurantTest {
         assertEquals(
                 "Should have 3 stars",
                 "The restaurant Great Restaurant has a price category of 4 and has an average of 3.0 stars",
-                greatRestaurant.toString());
+                greatRestaurant.toString()
+        );
     }
-
-} // end RestaurantTestClass
+}
