@@ -1,11 +1,20 @@
 # Java Fundamentals
-This repo contains Java Fundamentals from Code 401 Java at Code Fellows
+This repo contains code for projects centered around fundamental concepts of Java taught at Code Fellows in Fall 2019 while I was a student in their Code401-Java-d6 "Advanced Software Development for Java" two-month long class. The projects, classes and methods contained within are from the early days of the class.
+
+For more advanced concepts and material, also learned within this same class, refer to my other repos that I generated during this time:
+* [Data Structures and Algorithms](https://github.com/SharinaS/data-structures-and-algorithms)
+* [CodeFellowship](https://github.com/SharinaS/codefellowship)
+* [Songr](https://github.com/SharinaS/songr)
+* [Quotes](https://github.com/SharinaS/quotes)
+* [Bitmap-Transformer](https://github.com/SharinaS/bitmap-transformer)
+* [Taskmaster](https://github.com/SharinaS/taskmaster)
+* [FocaList](https://github.com/401-Focal-Point/Focalist)
+
+This repo also has a Wiki that I used to keep notes in for concepts encountered during, and even after, the class.
+* [My Java Wiki of Notes](https://github.com/SharinaS/java-fundamentals/wiki)
 
 # Contributor
 Sharina Stubbs
-
-# How To Test The Code:
-In the terminal, run `./gradlew test`
 
 # Methods and Classes Contained within This Repo:
 ## [Basics.java](https://github.com/SharinaS/java-fundamentals/blob/master/basics/Basics.java) contains the following methods:
@@ -90,3 +99,16 @@ Stretch Goals
 * Add an updateStars method to the Review class. This method should update the stars for that review, and, if the review is associated with a restaurant, also update the number of stars for that restaurant.
 * Refactor: keeping track of stars for restaurants is getting complicated. Get rid of that instance variable, and instead make this an instance method that calculates a restaurant’s star rating on the fly when it’s called.
 * Create another class for a User, so that we know which reviews were written by the same User. Ensure that a single User can’t submit multiple Reviews for the same Restaurant.
+
+# How To Test The Code:
+Navigate within the terminal to the directory of the code you wish to test. When you examine the files contained within the directory, you must have the following files to test in this way:
+1. gradle/wrapper
+2. build.gradle
+3. gradlew
+4. gradlew.bat
+5. settings.gradle
+
+In the terminal, run 
+```
+./gradlew test
+```
