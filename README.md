@@ -9,6 +9,7 @@ For more advanced concepts and material, also learned within this same class, re
 * [Bitmap-Transformer](https://github.com/SharinaS/bitmap-transformer)
 * [Taskmaster](https://github.com/SharinaS/taskmaster)
 * [FocaList](https://github.com/401-Focal-Point/Focalist)
+* [ZombieTag, aka JavaTag](https://github.com/JavaAwesome/JavaTag)
 
 This repo also has a Wiki that I used to keep notes in for concepts encountered during, and even after, the class.
 * [My Java Wiki of Notes](https://github.com/SharinaS/java-fundamentals/wiki)
