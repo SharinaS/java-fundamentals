@@ -1,5 +1,5 @@
 # Java Fundamentals
-This repo contains code for projects centered around fundamental concepts of Java taught at Code Fellows in Fall 2019 while I was a student in their Code401-Java-d6 "Advanced Software Development for Java" two-month long class. The projects, classes and methods contained within are from the early days of the class.
+This repo contains code for projects centered around fundamental concepts of Java taught at Code Fellows in Fall 2019 while I was a student in their [Code401-Java-d6](https://github.com/SharinaS/seattle-java-401d6) "Advanced Software Development in Java with SpringMVC, Android and AWS" 10-week long class. The projects, classes and methods contained within are from the early days of the class.
 
 For more advanced concepts and material, also learned within this same class, refer to my other repos that I generated during this time:
 * [Data Structures and Algorithms](https://github.com/SharinaS/data-structures-and-algorithms)
