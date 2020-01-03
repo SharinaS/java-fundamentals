@@ -17,7 +17,7 @@ This repo also has a Wiki that I used to keep notes in for concepts encountered 
 # Contributor
 Sharina Stubbs
 
-# Methods and Classes Contained within This Repo:
+# A Collection of Challenges and a Linter Application
 ## [Basics.java](https://github.com/SharinaS/java-fundamentals/blob/master/basics/Basics.java) contains the following methods:
 * pluralize()
 * flipNHeads()
@@ -34,10 +34,10 @@ Sharina Stubbs
 ## The linter Java application contains [app.java](https://github.com/SharinaS/java-fundamentals/blob/master/linter/src/main/java/linter/App.java):
 This app contains a method called readFile(), which reads through a given file, and checks each line for the presence of a semicolon. If lines are empty, end with an opening or closing curly brace, or if the line contains if or else, there will not be an error. 
 
-## [Inheritance](https://github.com/SharinaS/java-fundamentals/tree/master/inheritance) 
-### About this Library
+# A Library Called [Inheritance](https://github.com/SharinaS/java-fundamentals/tree/master/inheritance) 
 Inheritance is a library that uses an interface to interact with various classes. It is built on the idea of a website that allows users to review restaurants, shops and theaters.
 
+ ## About the Library
 All classes have constructor functions. When a review is added, it is added as a node to a linked list, using instantiations of the Review class. This means that each node has review author, review body and review stars. Meanwhile a restaurant has a name, a star rating from 0 to 5, and a price category. Shops have name, description and a price category, and theaters have a name and reviews. Currently the price category is from 1 to 5, though again, this is not limited anywhere, currently. When a reviewer adds a review, the business' star rating updates. 
 
 ### This library contains the following classes + 1 interface:
@@ -69,7 +69,7 @@ All classes have constructor functions. When a review is added, it is added as a
 ### Method in the Reviewable Interface
 * addReview(Review review)
 
-### SetUp and Feature Tasks for Inheritance:
+## SetUp and Feature Tasks for Inheritance - Day 1
 Setup
 * Within the java-fundamentals repo, create a directory named inheritance. cd into that directory, and run gradle init --type java-library.
 
@@ -100,6 +100,40 @@ Stretch Goals
 * Add an updateStars method to the Review class. This method should update the stars for that review, and, if the review is associated with a restaurant, also update the number of stars for that restaurant.
 * Refactor: keeping track of stars for restaurants is getting complicated. Get rid of that instance variable, and instead make this an instance method that calculates a restaurant’s star rating on the fly when it’s called.
 * Create another class for a User, so that we know which reviews were written by the same User. Ensure that a single User can’t submit multiple Reviews for the same Restaurant.
+
+## SetUp and Feature Tasks for Inheritance - Day 2
+### Setup
+Continue working in your inheritance library. Start by refactoring any of the relationships that you created in the last lab, but question today.
+
+### Feature Tasks
+* The users want shops! Create a Shop class; a Shop should have a name, description, and number of dollar signs.
+  * Implement a constructor for a Shop.
+  * Implement a reasonable toString method for Shops.
+  * Add tests for the basics of your Shop class.
+* The users also want to review shops!
+  * It would be great if a Review could be about either a Shop or a Restaurant. Choose an implementation, and make this possible.
+  * Ensure that your Shop class has an instance method to add a review about that shop, and that it works just as well as the Restaurant instance method with the same purpose.
+  * Write tests for this functionality.
+* The users want theaters! 
+  * Create a Theater class; a Theater should have a name and all of the movies currently showing there. (Strings are fine for the movies; no need to create another class.)
+  * Implement a constructor for a Theater.
+  * Write addMovie and removeMovie instance methods that allow the theater to update which movies are being shown.
+  * Implement a reasonable toString method for Theaters.
+  * Test your Theater functionality.
+* Review all the things!
+* Ensure that your Theater is just as reviewable as your Restaurant and your Shop.
+  * Test this functionality.
+* Users are frustrated: they like having a body, an author, and a number of stars, but when they’re reviewing a Theater, they also want to specify which movie they saw.
+* Some reviews should now have a String movie instance variable, to hold which movie that reviewer is referencing.
+* Make sure that someone reviewing a Restaurant or a Shop doesn’t have to include which movie they saw!
+* It’s also okay if someone doesn’t want to include the movie they saw when they’re reviewing a theater (maybe they just went in for the popcorn).
+* Add testing for any new functionality you’ve created.
+
+### Stretch Goals
+Yesterday’s stretch goals only get more interesting today!
+* Add an updateStars method to the Review class. This method should update the stars for that review, and, if the review is associated with a restaurant (or other reviewable thing!), also update the number of stars for that reviewable thing.
+* Refactor: keeping track of stars is getting complicated. Get rid of that instance variable, and instead make this an instance method that calculates a reviewable’s star rating on the fly when that instance method is called.
+* Create another class for a User, so that we know which reviews were written by the same User. Ensure that a single User can’t submit multiple Reviews for the same reviewable.
 
 # How To Test The Code:
 Navigate within the terminal to the directory of the code you wish to test. When you examine the files contained within the directory, you must have the following files to test in this way:
