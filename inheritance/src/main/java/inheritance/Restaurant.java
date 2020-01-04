@@ -1,7 +1,7 @@
 package inheritance;
 
-// Thanks to James Dansie for providing help with the logic and some code,
-// as well as to code review on 9/24/19 at Code Fellows.
+// Thanks to James Dansie for providing some help with the logic and some code,
+// as well as to code review on 9/24/19 at Code Fellows with Michelle Ferreirae.
 // NOTE: One restaurant has many reviews, and one review has one restaurant.
 // NOTE: Interfaces are accessed via "implements" while Inheritance is used via "extends"
 
@@ -25,7 +25,7 @@ public class Restaurant implements Reviewable {
     // adds new review to this restaurant
     @Override
     public void addReview(Review review){
-        // add review to the list called reviews
+        // add review to the end of the list in the constructor
         this.reviews.add(review);
         // set up a new pointer
         review.reviewable = this;

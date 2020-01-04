@@ -58,4 +58,24 @@ public class RestaurantTest {
                 greatRestaurant.toString()
         );
     }
+
+    // check average of stars for a restaurant, and shows that when the restaurant and the review are already
+    // associated, the star rating of the restaurant does not update, given the math provided in getStarRating()
+    @Test
+    public void testGetRestaurantStarRating2() {
+        greatRestaurant.addReviewsAndRating("Nancy", "Yeah, this restaurant is great", 1);
+        greatRestaurant.addReviewsAndRating("Peter Pan", "Tinkle Bell makes a better waffle", 2);
+        greatRestaurant.addReviewsAndRating("Peter Pan", "Tinkle Bell makes a better waffle", 2);
+        greatRestaurant.addReviewsAndRating("Peter Pan", "Tinkle Bell makes a better waffle", 2);
+        greatRestaurant.addReviewsAndRating("Peter Pan", "Tinkle Bell makes a better waffle", 2);
+        greatRestaurant.addReviewsAndRating("Peter Pan", "Tinkle Bell makes a better waffle", 2);
+        greatRestaurant.addReviewsAndRating("Peter Pan", "Tinkle Bell makes a better waffle", 2);
+        greatRestaurant.addReviewsAndRating("Peter Pan", "Tinkle Bell makes a better waffle", 2);
+
+        assertEquals(
+                "Should have 1 star, which is what the first two unique reviews produce.",
+                "The restaurant Great Restaurant has a price category of 4 and has an average of 1.0 stars",
+                greatRestaurant.toString()
+        );
+    }
 }
