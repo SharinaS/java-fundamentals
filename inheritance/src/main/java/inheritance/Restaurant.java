@@ -10,25 +10,44 @@ import java.util.LinkedList;
 public class Restaurant implements Reviewable {
     // Instance Variables
     String name;
-    double stars0To5;
+    double starRating;
     int priceCategory;
     LinkedList<Review> reviews;
 
     // Constructor
-    public Restaurant (String name, double stars0To5, int priceCategory) {
+    public Restaurant (String name, double starRating, int priceCategory) {
         this.name = name;
         this.priceCategory = priceCategory;
-        this.stars0To5 = stars0To5;
+        this.starRating = starRating;
         this.reviews = new LinkedList<>();
     }
 
-    // adds new review to this restaurant
+
+//    public void addReviewAndRating(String name, String body, int stars0To5) {
+//        // make a new review instance
+//        Review newReview = new Review(name, body, stars0To5, this);
+//        // add the new review to the list, using the addReview method
+//        addReview(newReview);
+//        // update the restaurant review with getStarRating method.
+//        getStarRating();
+//    }
+
+
+    public void addReviewAndRating(String name, String body, int stars0To5, Reviewable business) {
+        // make a new review instance
+        Review newReview = new Review(name, body, stars0To5, this);
+        // add the new review to the list, using the addReview method
+        addReview(newReview);
+        // update the restaurant review with getStarRating method.
+        getStarRating();
+    }
+
     @Override
     public void addReview(Review review){
         // add review to the end of the list in the constructor
         this.reviews.add(review);
-        // set up a new pointer
-        review.reviewable = this;
+        // Review has the instance variable business, and so this line points it towards Restaurant.
+        review.business = this;
     }
 
     public void getStarRating(){
@@ -37,19 +56,18 @@ public class Restaurant implements Reviewable {
         for(Review r : this.reviews) {
             starSum += r.starRating;
         }
-        // divide the number of stars by the number of reviews
-        this.stars0To5 = starSum / this.reviews.size();
-    }
-
-    public void addReviewsAndRating(String name, String body, int stars0To5) {
-        addReview(new Review(name, body, stars0To5, this));
-        getStarRating();
+        // get the average rating: divide the number of stars by the number of reviews, and update constructor
+        this.starRating = starSum / this.reviews.size();
     }
 
     @Override
     public String toString() {
         return String.format(
                 "The restaurant %s has a price category of %s and has an average of %s stars",
-                this.name, this.priceCategory, this.stars0To5);
+                this.name, this.priceCategory, this.starRating);
+    }
+
+    public void setPriceCategory(int priceCategory) {
+        this.priceCategory = priceCategory;
     }
 }

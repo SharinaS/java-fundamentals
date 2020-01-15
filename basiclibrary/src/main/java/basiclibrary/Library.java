@@ -4,7 +4,6 @@
 
 package basiclibrary;
 
-
 import java.util.*;
 
 public class Library {
@@ -15,14 +14,17 @@ public class Library {
 
     // ====Create an array from the values rolled from a six-sided dice, rolled n times. ====
     public static int[] roll(int n){
+        // make an empty array of size n to hold the dice rolls
+        int[] diceRolls = new int[n];
+        // get a random number between 0 and 6 to put in the array
         Random rand = new Random();
         int max = 6;
         int min = 0;
-        int[] diceRolls = new int[n];
+
 
         for (int i = 0; i < n; i++){
-              int randyNum = rand.nextInt((max - min) + 1);
-              diceRolls[i] = randyNum;
+            int randyNum = rand.nextInt((max - min) + 1);
+            diceRolls[i] = randyNum;
         }
         return diceRolls;
     }
@@ -137,5 +139,6 @@ public class Library {
             }
         }
         return highestVotes;
+
     }
 }

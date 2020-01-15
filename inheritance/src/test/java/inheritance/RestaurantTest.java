@@ -19,7 +19,7 @@ public class RestaurantTest {
     @Test
     public void testRestaurantContructor() {
         assertEquals(2, seattleFish.priceCategory);
-        assertEquals(4, 4, seattleFish.stars0To5);
+        assertEquals(4, 4, seattleFish.starRating);
         assertEquals("Seattle Fish and Clams", seattleFish.name);
         assertEquals("Great Restaurant", greatRestaurant.name);
     }
@@ -38,7 +38,7 @@ public class RestaurantTest {
     // Check star review for a restaurant
     @Test
     public void testAddReviewsAndRating() {
-        greatRestaurant.addReviewsAndRating("Nancy", "Yeah, this restaurant is great", 4);
+        greatRestaurant.addReviewAndRating("Nancy", "Yeah, this restaurant is great", 4, greatRestaurant);
         assertEquals(
                 "Should have 4 stars",
                 4,
@@ -49,9 +49,9 @@ public class RestaurantTest {
     // check average of reviews for restaurant while printing out string
     @Test
     public void testGetRestaurantStarRating() {
-        greatRestaurant.addReviewsAndRating("Nancy", "Yeah, this restaurant is great", 3);
-        greatRestaurant.addReviewsAndRating("Peter Pan", "Tinkle Bell makes a better waffle", 2);
-        greatRestaurant.addReviewsAndRating("Peter Piper", "Great salad", 4);
+        greatRestaurant.addReviewAndRating("Nancy", "Yeah, this restaurant is great", 3, greatRestaurant);
+        greatRestaurant.addReviewAndRating("Peter Pan", "Tinkle Bell makes a better waffle", 2, greatRestaurant);
+        greatRestaurant.addReviewAndRating("Peter Piper", "Great salad", 4, greatRestaurant);
         assertEquals(
                 "Should have 3 stars",
                 "The restaurant Great Restaurant has a price category of 4 and has an average of 3.0 stars",
@@ -63,19 +63,29 @@ public class RestaurantTest {
     // associated, the star rating of the restaurant does not update, given the math provided in getStarRating()
     @Test
     public void testGetRestaurantStarRating2() {
-        greatRestaurant.addReviewsAndRating("Nancy", "Yeah, this restaurant is great", 1);
-        greatRestaurant.addReviewsAndRating("Peter Pan", "Tinkle Bell makes a better waffle", 2);
-        greatRestaurant.addReviewsAndRating("Peter Pan", "Tinkle Bell makes a better waffle", 2);
-        greatRestaurant.addReviewsAndRating("Peter Pan", "Tinkle Bell makes a better waffle", 2);
-        greatRestaurant.addReviewsAndRating("Peter Pan", "Tinkle Bell makes a better waffle", 2);
-        greatRestaurant.addReviewsAndRating("Peter Pan", "Tinkle Bell makes a better waffle", 2);
-        greatRestaurant.addReviewsAndRating("Peter Pan", "Tinkle Bell makes a better waffle", 2);
-        greatRestaurant.addReviewsAndRating("Peter Pan", "Tinkle Bell makes a better waffle", 2);
+        greatRestaurant.addReviewAndRating("Nancy", "Yeah, this restaurant is great", 1, greatRestaurant);
+        greatRestaurant.addReviewAndRating("Peter Pan", "Tinkle Bell makes a better waffle", 2, greatRestaurant);
+        greatRestaurant.addReviewAndRating("Peter Pan", "Tinkle Bell makes a better waffle", 2, greatRestaurant);
+        greatRestaurant.addReviewAndRating("Peter Pan", "Tinkle Bell makes a better waffle", 2, greatRestaurant);
+        greatRestaurant.addReviewAndRating("Peter Pan", "Tinkle Bell makes a better waffle", 2, greatRestaurant);
+        greatRestaurant.addReviewAndRating("Peter Pan", "Tinkle Bell makes a better waffle", 2, greatRestaurant);
+        greatRestaurant.addReviewAndRating("Peter Pan", "Tinkle Bell makes a better waffle", 2, greatRestaurant);
+        greatRestaurant.addReviewAndRating("Peter Pan", "Tinkle Bell makes a better waffle", 2, greatRestaurant);
 
         assertEquals(
                 "Should have 1 star, which is what the first two unique reviews produce.",
                 "The restaurant Great Restaurant has a price category of 4 and has an average of 1.0 stars",
                 greatRestaurant.toString()
+        );
+    }
+
+    @Test
+    public void testPriceCategory() {
+        greatRestaurant.setPriceCategory(5);
+        assertEquals(
+                "Should have a price category of 5",
+                5,
+                greatRestaurant.priceCategory
         );
     }
 }

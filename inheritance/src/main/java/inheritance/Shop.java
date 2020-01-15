@@ -21,7 +21,7 @@ public class Shop implements Reviewable {
     @Override
     public void addReview(Review review) {
         this.reviews.add(review);
-        review.reviewable = this;
+        review.business = this;
     }
 
     @Override
