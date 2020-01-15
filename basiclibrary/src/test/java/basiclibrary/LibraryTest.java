@@ -6,6 +6,7 @@ package basiclibrary;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -17,16 +18,19 @@ public class LibraryTest {
         assertTrue("someLibraryMethod should return 'true'", classUnderTest.someLibraryMethod());
     }
 
-    @Test public void testArrayDiceRolls() {
+    @Test
+    public void testArrayDiceRolls() {
         int[] arr = new int[4];
         int size = arr.length;
+        System.out.println(Arrays.toString(Library.roll(4)));
         assertEquals(
                 "Expected an array of length 4",
                 size,
                 Library.roll(4).length);
     }
 
-    @Test public void testIfTrue() {
+    @Test
+    public void testIfTrue() {
         assertEquals(
                 "Expected true as the answer",
                 true,

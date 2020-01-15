@@ -6,7 +6,7 @@ public class Theater implements Reviewable{
     // instance variables
     String name;
     LinkedList <String> movies;
-    LinkedList<Review> reviews;
+    LinkedList <Review> reviews;
 
     // constructor
     public Theater(String name) {
@@ -35,7 +35,7 @@ public class Theater implements Reviewable{
     @Override
     public void addReview(Review review) {
         this.reviews.add(review);
-        review.reviewable = this;
+        review.business = this;
     }
 
     // string method
